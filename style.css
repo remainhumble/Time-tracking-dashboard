@@ -10,11 +10,13 @@ body {
   font-family: "Rubik", sans-serif;
   background-color: hsl(226, 43%, 10%);
   color: hsl(236, 100%, 87%);
+  padding: 1.25em;
   font-weight: 300;
 }
 
 h1 {
   font-weight: 400;
+  font-size: 24px;
 }
 
 h3 {
@@ -25,6 +27,25 @@ h3 {
 #name {
   background-color: hsl(246, 80%, 60%);
   border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+}
+
+.name-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+#name img {
+  width: 3em;
+  height: 3em;
+  margin-right: 15px;
+  border: 2px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
 }
 
 ul {
@@ -32,18 +53,83 @@ ul {
   display: flex;
   justify-content: center;
   background-color: hsl(235, 46%, 20%);
-  padding: 20px 0;
+  padding: 30px 0 18px 0;
+  border-radius: 12px;
 }
+
 li {
   margin: 0 10px;
   cursor: pointer;
   font-weight: 300;
 }
+
 li:hover {
   font-weight: 500;
+}
+
+.weekly {
+  display: flex;
+  justify-content: space-between;
+}
+
+.previous h3 {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .grid-item {
   background-color: hsl(235, 46%, 20%);
   border-radius: 12px;
+  padding: 20px;
+}
+
+.img {
+  position: relative;
+  top: 43px;
+  background-color: white;
+  border-radius: 12px;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 16px;
+}
+
+.img > img {
+  opacity: 1;
+  width: 90px;
+  height: 90px;
+}
+
+.img:nth-child(1) {
+  background: hsl(15, 100%, 70%);
+  overflow: hidden;
+}
+
+.img:nth-child(3) {
+  background: hsl(195, 74%, 62%);
+  overflow: hidden;
+}
+
+.img:nth-child(5) {
+  background: hsl(348, 100%, 68%);
+  overflow: hidden;
+}
+.img:nth-child(7) {
+  background: hsl(145, 58%, 55%);
+  overflow: hidden;
+}
+
+.img:nth-child(9) {
+  background: hsl(264, 64%, 52%);
+  overflow: hidden;
+}
+
+.img:nth-child(11) {
+  background: hsl(43, 84%, 65%);
+  overflow: hidden;
+}
+
+#grid img {
+  position: relative;
+  top: -10px;
 }
