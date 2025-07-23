@@ -24,30 +24,29 @@
         </div>
       </div>
       <ul>
-        <li>Daily</li>
-        <li>Weekly</li>
-        <li>Monthly</li>
+        <li class="btn" data-id="daily">Daily</li>
+        <li class="btn" data-id="weekly">Weekly</li>
+        <li class="btn" data-id="monthly">Monthly</li>
       </ul>
     </div>
 
     <div id="grid">
+      <!-- WORK -->
       <div class="img"><img src="./images/icon-work.svg" alt="work" /></div>
 
       <div class="grid-item">
-        <!-- WORK -->
-        <!-- <div class="daily">
-          <span class="current">5hrs</span>
-          <span class="previous">Last Week - 7hrs</span>
-        </div> -->
-        <div class="weekly">
-          <span class="current"
-            ><h3 class="title"></h3>
-            <p class="current-hours"></p
-          ></span>
-          <span class="previous">
-            <h3>...</h3>
-            <p class="previous-hours"></p
-          ></span>
+        <div class="h3-row">
+          <h3 class="title"></h3>
+          <h3>...</h3>
+        </div>
+        <div class="daily stats">
+          <span class="current"></span>
+
+          <span class="previous"></span>
+        </div>
+        <div class="weekly stats">
+          <span class="current"> <p class="current-hours"></p></span>
+          <span class="previous"> <p class="previous-hours"></p></span>
         </div>
         <!-- <div class="monthly">
           <span class="current">128hrs</span>
@@ -55,21 +54,25 @@
           <span class="previous"> Last Week - 142hrs</span>
         </div> -->
       </div>
-
+      <!-- PLAY -->
       <div class="img"><img src="./images/icon-play.svg" alt="play" /></div>
       <div class="grid-item">
-        <h3 class="title"></h3>
+        <div class="h3-row">
+          <h3 class="title"></h3>
+          <h3>...</h3>
+        </div>
         <div class="daily">
           <span class="current"></span>
           <span class="previous"></span>
         </div>
         <div class="weekly">
           <span class="current"></span>
-          <span class="previous"></span>
+          <span class="previous"> </span>
         </div>
         <div class="monthly">
           <span class="current">23hrs</span>
-          <span class="previous">Last Week - 29hrs</span>
+
+          <span class="previous"> Last Week - 36hrs</span>
         </div>
       </div>
       <div class="img"><img src="./images/icon-study.svg" alt="study" /></div>
@@ -134,7 +137,6 @@
         <div class="weekly">
           <!-- <span class="current"></span>
           <span class="previous"></span> -->
-          
         </div>
 
         <div class="monthly">

@@ -24,6 +24,13 @@ h3 {
   font-weight: 500;
 }
 
+.h3-row {
+  display: flex;
+ justify-content: space-between;
+}
+
+
+
 #name {
   background-color: hsl(246, 80%, 60%);
   border-radius: 12px;
@@ -57,24 +64,23 @@ ul {
   border-radius: 12px;
 }
 
-li {
+.btn {
   margin: 0 10px;
   cursor: pointer;
   font-weight: 300;
 }
 
-li:hover {
+.btn:hover {
+  font-weight: 500;
+}
+
+.btn.active {
   font-weight: 500;
 }
 
 .weekly {
   display: flex;
   justify-content: space-between;
-}
-
-.previous h3 {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .grid-item {
@@ -133,3 +139,17 @@ li:hover {
   position: relative;
   top: -10px;
 }
+
+.stats {
+    
+  display: none;
+  
+}
+
+.stats.active {
+  display: flex;
+}
+
+  
+
+
