@@ -1,56 +1,55 @@
-const profile = document.getElementById("profile");
 const titleName = document.querySelectorAll(".title");
 const currentHours = document.querySelectorAll(".current-hours");
 const previousHours = document.querySelectorAll(".previous-hours");
 const btns = document.querySelectorAll(".btn");
 const stats = document.querySelectorAll(".stats");
+const buttonsContainer = document.getElementById("buttons");
 
-titleName.forEach((element, index) => {
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const title = data[index].title;
-      element.textContent = title;
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
+let data = [];
+
+// Fetch data once
+fetch("data.json")
+  .then((response) => response.json())
+  .then((json) => {
+    data = json;
+    updateStats("weekly"); // Default view
+    // Set titles
+    titleName.forEach((element, index) => {
+      element.textContent = data[index].title;
     });
-});
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
 
-currentHours.forEach((element, index) => {
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const current = data[index].timeframes.weekly.current;
-      element.textContent = `${current}hrs`;
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
+// Update all .stats elements for the selected timeframe.
+function updateStats(timeframe) {
+  data.forEach((item, index) => {
+    const current = item.timeframes[timeframe].current;
+    const previous = item.timeframes[timeframe].previous;
+    if (currentHours[index]) currentHours[index].textContent = `${current}hrs`;
+    if (previousHours[index]) {
+      let label = "Last Week";
+      if (timeframe === "daily") label = "Yesterday";
+      if (timeframe === "monthly") label = "Last Month";
+      previousHours[index].textContent = ` ${label} - ${previous}hrs`;
+    }
+  });
+
+  // Show only the selected stats
+  ["daily", "weekly", "monthly"].forEach((tf) => {
+    document.querySelectorAll(`.${tf}.stats`).forEach((el) => {
+      el.classList.toggle("active", tf === timeframe);
     });
-});
+  });
+}
 
-previousHours.forEach((element, index) => {
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const previous = data[index].timeframes.weekly.previous;
-      element.textContent = ` Last Week - ${previous}hrs`;
-    });
-});
-
-profile.addEventListener("click", (e) => {
+// Button click handler
+buttonsContainer.addEventListener("click", (e) => {
   const id = e.target.dataset.id;
   if (id) {
-    // remove active from other buttons
-    btns.forEach((btn) => {
-      btn.classList.remove("active");
-      e.target.classList.add("active");
-    });
-    // hide other stats
-    stats.forEach((stat) => {
-      stat.classList.remove("active");
-    });
-const element = document.querySelector(`.${id}.stats`);
-    element.classList.add("active");
+    btns.forEach((btn) => btn.classList.remove("active"));
+    e.target.classList.add("active");
+    updateStats(id);
   }
 });
