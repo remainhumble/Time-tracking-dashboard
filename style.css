@@ -138,10 +138,12 @@ h3 {
   top: -10px;
 }
 
-.stats {
-  display: none;
+.current-hours {
+  font-size: 24px;
 }
 
-.stats.active {
+.stats {
+  display: none;
   display: flex;
+  align-items: center;
 }

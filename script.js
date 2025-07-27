@@ -12,7 +12,7 @@ fetch("data.json")
   .then((response) => response.json())
   .then((json) => {
     data = json;
-    updateStats("weekly"); // Default view
+
     // Set titles
     titleName.forEach((element, index) => {
       element.textContent = data[index].title;
@@ -22,7 +22,6 @@ fetch("data.json")
     console.error("Error fetching data:", error);
   });
 
-// Update all .stats elements for the selected timeframe.
 function updateStats(timeframe) {
   data.forEach((item, index) => {
     const current = item.timeframes[timeframe].current;
