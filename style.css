@@ -147,3 +147,19 @@ h3 {
   display: flex;
   align-items: center;
 }
+
+@media (min-width: 376px) {
+  body {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  #profile {
+  }
+
+  #grid {
+    display: grid;
+    
+  }
+}
